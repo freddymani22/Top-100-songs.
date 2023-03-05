@@ -1,0 +1,35 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+  <link rel="icon" type="image/x-icon" href="{% static 'musical-note.png' %}">
+  <link rel="stylesheet" href="{% static 'base.css' %}">
+  {% if title %}
+  <title>Music Of the day - {{ title }}</title>
+  {% else %}
+  <title>Music Of The Day</title>
+  {% endif %}
+</head>
+
+<body style="background-color: #1B1B2F">
+  <nav class="navbar navbar-nav" style="background-color:#008080;">
+    <div class="container-fluid">
+      <a class="navbar-brand text-white lead" href="{% url 'home' %}">HOME</a>
+      <p class="text-left text-monospace text-white">A Project by Freddy Mani</p>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+  </nav>
+  </div>
+  <div class="container d-flex aligns-items-center justify-content-center">
+    {% block music %} {% endblock %}
+  </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

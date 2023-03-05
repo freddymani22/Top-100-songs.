@@ -1,0 +1,70 @@
+{% extends 'songs/base.html' %}
+
+
+{% block music %}
+<div class="container">
+  {% if messages %}
+  <div class="container">
+    <div class="alert alert-success text-red" role="alert">
+      {% for message in messages %}
+      {{ message }}
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+  <div class="container d-flex flex-column align-items-center">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-6 p-3">
+        <p class="lead mt-5 d-block text-center text-white">This website allows users to view the top songs of a given day.
+          Users can input a specific date, and the website will display a list of the top 100 songs that are popular on that particular day (From 1/1/1958 until today).</p>
+        <form method="post" action="." class="d-flex align-items-center justify-content-center">
+          {% csrf_token %}
+          <div class="form-group border border-primary rounded p-3">
+            <label class="lead d-block text-white" for="{{ form.date.id_for_label }}">Enter the date:</label>
+            {{ form.date }}
+          </div>
+          <div class="d-flex align-items-center">
+            <button type="submit" class="lead m-2 btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-6 p-3">
+        <p class="lead mt-5 d-block text-center text-white">Check the track record of an artist over the years by searching the artist's name.</p>
+        <form method="post" action="." class="d-flex align-items-center justify-content-center">
+          {% csrf_token %}
+          {% for field in singer %}
+          <div class=" justify-content-center form-group border border-primary rounded p-3">
+            <label class="lead d-block text-white" for="{{ singer.artist_name.id_for_label }}">Enter the Artist's name:</label>
+            {{ field }}
+          </div>
+          {% endfor %}
+          <div class="d-flex align-items-center">
+            <button type="submit" class="lead m-2 btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-6 p-3">
+        <p class="lead mt-5 d-block text-center text-white">Check the track record of an artist over the years by searching the artist's name.</p>
+        <form method="post" action="." class="d-flex align-items-center justify-content-center">
+          {% csrf_token %}
+          {% for art in artist %}
+          <div class=" justify-content-center form-group border border-primary rounded p-3">
+            <label class="lead d-block text-white" for="{{ artist.artist_name.id_for_label }}">Enter the Artist's name:</label>
+            {{ art }}
+          </div>
+          {% endfor %}
+          <div class="d-flex align-items-center">
+            <button type="submit" class="lead m-2 btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+  {% endblock music %}
