@@ -39,7 +39,7 @@ def home(request):
             #     my_models.append({column:value for column,value in zip(columns,list_details)})
             else:
                 my_models = BillBoard.objects.filter(
-                    date__gte=date).order_by('date')[:100]
+                    date__lte=date).order_by('-date')[:100]
                 if my_models:
                     df = pd.DataFrame.from_records(my_models.values())
                     df['song'] = df['song'].str.replace('/', '_')

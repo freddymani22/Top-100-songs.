@@ -1,4 +1,4 @@
-from . models import BillBoard
+from songs.models import BillBoard
 import pandas as pd
 df = pd.read_csv('bill2.csv')
 
