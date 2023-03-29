@@ -19,13 +19,16 @@ from songs import views
 from django.conf import settings
 from django.conf.urls.static import static
 import urllib.parse
-
+from api.views import MusicListView,MusicDateAPIView,ArtistListAPIView
 
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.home, name = 'home' ),
+    path('api/', MusicListView.as_view()),
+    path('api/date/', MusicDateAPIView.as_view()),
+    path('api/singer/', ArtistListAPIView.as_view()),
     # path('rev/<str:song>/<str:artist>/',views.rev, name = 'rev'),
     path('result/<str:song>/<str:artist>/',views.result, name = 'result'),
 ]
